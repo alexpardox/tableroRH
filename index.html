@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio de Liderazgo - Alejandro Pardo</title>
+    <!-- Fuentes de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome para Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* Variables de Color Estilo Consultoría Premium */
+        :root {
+            --primary-dark: #0f172a;
+            --primary-blue: #1e3a8a;
+            --accent-blue: #3b82f6;
+            --accent-amber: #f59e0b;
+            --bg-light: #f8fafc;
+            --text-main: #334155;
+            --text-dark: #0f172a;
+            --border-color: #cbd5e1;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        /* Navbar / Navegación */
+        .navbar {
+            background-color: rgba(15, 23, 42, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .navbar .logo {
+            font-family: 'Montserrat', sans-serif;
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 20px;
+            letter-spacing: 1px;
+        }
+
+        .navbar ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .navbar ul li a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            font-family: 'Montserrat', sans-serif;
+            transition: color 0.3s;
+        }
+
+        .navbar ul li a:hover {
+            color: var(--accent-blue);
+        }
+
+        /* Hero / Portada */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #1e293b 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+            color: #ffffff;
+            margin-bottom: 60px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 2;
+        }
+
+        .hero-avatar {
+            width: 130px;
+            height: 130px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--primary-blue));
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: white;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            border: 4px solid rgba(255,255,255,0.1);
+        }
+
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 52px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+
+        .hero .subtitle {
+            font-size: 20px;
+            color: var(--accent-blue);
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 30px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hero .quote {
+            font-size: 18px;
+            font-style: italic;
+            color: #94a3b8;
+            max-width: 650px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Secciones Generales */
+        section {
+            padding: 100px 50px 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 32px;
+            color: var(--text-dark);
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-blue);
+            border-radius: 2px;
+        }
+
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            .navbar { padding: 15px 20px; }
+            .navbar ul { display: none; }
+            section { padding: 80px 20px 40px; }
+            .hero h1 { font-size: 36px; }
+        }
+
+        /* Estilos del Test VIA */
+        .intro-text {
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            text-align: justify;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border-left: 5px solid var(--accent-blue);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+        }
+
+        .card.opportunity {
+            border-left-color: var(--accent-amber);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            gap: 15px;
+        }
+
+        .card-header i {
+            font-size: 22px;
+            color: var(--primary-blue);
+        }
+
+        .card.opportunity .card-header i {
+            color: var(--accent-amber);
+        }
+
+        .card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: var(--text-main);
+            text-align: justify;
+        }
+
+        /* Estilos de Visión de Liderazgo */
+        .theory-block {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            margin-bottom: 30px;
+        }
+
+        .theory-block h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        /* Tabla Comparativa */
+        .table-container {
+            overflow-x: auto;
+            margin: 30px 0;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        th {
+            background-color: var(--primary-blue);
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            padding: 15px;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e2e8f0;
+            color: var(--text-main);
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        /* Sección Misión */
+        .mission-box {
+            background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+            color: white;
+            padding: 45px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(30, 58, 138, 0.15);
+            text-align: center;
+        }
+
+        .mission-box h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--accent-blue);
+        }
+
+        .mission-statement {
+            font-size: 20px;
+            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .mission-justification {
+            font-size: 15px;
+            color: #cbd5e1;
+            text-align: justify;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 25px;
+            line-height: 1.7;
+        }
+
+        /* Galería de Valores */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .gallery-item {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            border-top: 4px solid var(--accent-blue);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-quote {
+            font-size: 15px;
+            font-style: italic;
+            color: var(--text-dark);
+            line-height: 1.6;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .gallery-quote::before {
+            content: '"';
+            font-family: 'Montserrat', sans-serif;
+            font-size: 40px;
+            color: #e2e8f0;
+            position: absolute;
+            top: -25px;
+            left: -10px;
+            z-index: 0;
+        }
+
+        .gallery-author {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-blue);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-dark);
+            color: #64748b;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 13px;
+            margin-top: 60px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">AP | LIDERAZGO</div>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#via">Test VIA</a></li>
+            <li><a href="#vision">Visión de Liderazgo</a></li>
+            <li><a href="#mision">Misión</a></li>
+            <li><a href="#valores">Valores</a></li>
+        </ul>
+    </nav>
+
+    <!-- PORTADA / HERO -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <div class="hero-avatar">
+                <img src="https://github.com/alexpardox/tableroRH/blob/main/foto_Perfil.jpg?raw=true" alt="Foto de Alejandro Pardo" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+            </div>
+            <h1>Alejandro Pardo</h1>
+            <p class="subtitle">Software Engineer Manager & Líder de Servicio</p>
+            <p class="quote">"El verdadero liderazgo no consiste en administrar estructuras de forma rígida, sino en desarrollar a las personas, desafiar con empatía el estatus quo e inspirar confianza con la mirada puesta en el horizonte."</p>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 2: TEST VIA -->
+    <section id="via">
+        <h2 class="section-title">Análisis del Test VIA</h2>
+        <p class="intro-text">
+            Al revisar mis resultados del VIA Character Strengths Profile, encuentro un gran sentido de identidad en mis principales fortalezas. Que mi fortaleza número uno sea el sentido del humor refleja cómo me gusta hacer reír a la gente para conectar de manera cercana con los demás. Esta actitud me ha ayudado a aligerar el estrés tanto en casa como en la oficina. La equidad y la perspectiva también definen mi forma de trabajar; en mi rol como Software Engineer Manager en mi actual trabajo, busco constantemente proporcionar sabios consejos a mi equipo y asegurarme de dar a todos una oportunidad justa durante las evaluaciones y asignaciones de proyectos. Además, la honestidad me impulsa a actuar de forma genuina y auténtica, asumiendo la responsabilidad de mis acciones. Finalmente, la esperanza es el motor que me hace esperar lo mejor del futuro y trabajar para lograrlo.
+        </p>
+        
+        <h3 style="font-family:'Montserrat'; margin-bottom:20px; font-size:20px; color:var(--primary-blue);">Mis Áreas de Oportunidad Clave</h3>
+        <div class="grid-2">
+            <div>
+                <div class="card opportunity">
+                    <div class="card-header"><i class="fa-solid fa-users-gear"></i><h3>Liderazgo</h3></div>
+                    <p>Aunque dirijo equipos, necesito enfocarme más en la capacidad de motivar al grupo preservando las buenas relaciones y no solo en la gestión técnica o las métricas que generan.</p>
+                </div>
+                <div class="card opportunity">
+                    <div class="card-header"><i class="fa-solid fa-sliders"></i><h3>Autorregulación</h3></div>
+                    <p>Requiero mayor control sobre lo que siento y hago para ser más disciplinado. A veces me sumerjo demasiado en algunas actividades que no son lo mejor para mí en este momento y necesito equilibrar mejor mis tiempos.</p>
+                </div>
+                <div class="card opportunity">
+                    <div class="card-header"><i class="fa-solid fa-bolt"></i><h3>Entusiasmo</h3></div>
+                    <p>Me falta abordar la vida con mayor fogosidad y energía. A veces la rutina técnica o la monotonía del hogar se sienten pesadas, y olvido vivir la vida como una aventura para sentirme verdaderamente activo.</p>
+                </div>
+            </div>
+            <div>
+                <div class="card opportunity">
+                    <div class="card-header"><i class="fa-solid fa-heart"></i><h3>Amor</h3></div>
+                    <p>Debo priorizar el valorar mis relaciones íntimas y recíprocas. Con la llegada de mi primer hijo hace un año y mis múltiples proyectos, es fundamental asegurar el tiempo de calidad y la cercanía emocional con él y con mi esposa.</p>
+                </div>
+                <div class="card opportunity">
+                    <div class="card-header"><i class="fa-solid fa-compass"></i><h3>Espiritualidad</h3></div>
+                    <p>Me cuesta tener creencias coherentes sobre el gran propósito y mi lugar en el esquema más amplio del universo. Suelo enfocarme en lo pragmático y material, dejando de lado el significado más profundo de la vida que proporciona bienestar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 3: VISIÓN Y ESTILO DE LIDERAZGO -->
+    <section id="vision">
+        <h2 class="section-title">Visión y Estilo de Liderazgo</h2>
+        <p class="intro-text">
+            El liderazgo no es una posición fija ni una jerarquía rígida; es un proceso dinámico de influencia y servicio. A lo largo de la historia de la administración, las teorías han evolucionado desde la noción rígida de que "el líder nace" (Teoría de Rasgos) hacia enfoques centrados en el comportamiento observable (Kurt Lewin) y modelos adaptativos que dependen enteramente del contexto (Teorías de Contingencia como el Modelo Ruta-Meta o Hersey-Blanchard).
+        </p>
+
+        <div class="theory-block">
+            <h3>Liderazgo Transaccional vs. Transformacional y de Servicio</h3>
+            <p class="intro-text" style="font-size:14px; margin-bottom:0;">
+                Mientras que el liderazgo transaccional se limita a un intercambio de incentivos económicos o correctivos y un control estricto de estructuras operativas, el <strong>Liderazgo Transformacional</strong> apela a los valores morales, ideales y emociones para inspirar una visión compartida. Complementando esto, el <strong>Liderazgo de Servicio (Servant Leadership)</strong> coloca las necesidades del equipo y de la comunidad en la máxima prioridad. Este portafolio abraza firmemente la transición desde la administración tradicional hacia un liderazgo transformacional y de servicio.
+            </p>
+        </div>
+
+        <h3 style="font-family:'Montserrat'; margin:30px 0 10px; font-size:20px; color:var(--text-dark);">La Matriz de Transformación: Liderazgo vs. Administración</h3>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Liderazgo</th>
+                        <th>Administración</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Innova y desarrolla nuevas soluciones</td><td>Administra procesos existentes</td></tr>
+                    <tr><td>Es original y genuino</td><td>Copia modelos preestablecidos</td></tr>
+                    <tr><td>Se centra en el desarrollo de la gente</td><td>Se centra en los sistemas y estructuras</td></tr>
+                    <tr><td>Inspira confianza y autonomía</td><td>Ejerce control y supervisión</td></tr>
+                    <tr><td>Mantiene una visión a largo plazo</td><td>Se enfoca en objetivos a corto plazo</td></tr>
+                    <tr><td>Pregunta qué y por qué (el propósito)</td><td>Pregunta cómo y cuándo (el método)</td></tr>
+                    <tr><td>Mira hacia el horizonte</td><td>Mira hacia la línea de fondo financiera</td></tr>
+                    <tr><td>Desafía de forma constructiva el estatus quo</td><td>Acepta el estatus quo imperante</td></tr>
+                    <tr><td>Hace lo correcto por convicción moral</td><td>Hace las cosas bien por métrica</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="theory-block">
+            <h3>Influencia Global y Modelos de Referencia</h3>
+            <p class="intro-text" style="font-size:14px; margin-bottom:0;">
+                Grandes figuras demuestran que el verdadero impacto no proviene del poder legítimo u organizacional, sino del <strong>poder de referencia y de experiencia</strong>. Líderes como Barack Obama o el Papa Francisco guían inspirando confianza mutua y empatía, superando el frío control administrativo. Activistas globales como Malala Yousafzai u Olimpia Coral demuestran la esencia de desafiar el estatus quo e impulsar cambios históricos a través de la elocuencia y asertividad. Asimismo, la historia de <strong>Wangari Maathai</strong> (Premio Nobel de la Paz) ilustra a la perfección el liderazgo transformacional y de servicio: a través de su Movimiento Cinturón Verde, movilizó y empoderó a comunidades rurales apelando a valores morales compartidos, demostrando que el liderazgo auténtico elimina obstáculos y conecta los esfuerzos cotidianos con un propósito trascendente.
+            </p>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 4: MISIÓN DE VIDA -->
+    <section id="mision">
+        <h2 class="section-title">Misión y Propósito de Vida</h2>
+        <div class="mission-box">
+            <h3>Mi Propósito Declarado</h3>
+            <div class="mission-statement">
+                "Impactar positivamente mi entorno profesional y familiar a través de un liderazgo transformacional y de servicio; utilizando la perspectiva estratégica y la equidad para desarrollar el potencial humano de mis equipos de trabajo, mientras resguardo con amor y autorregulación el tiempo presente con mi familia, conectando cada proyecto en el que intervenga con un propósito mayor para mi comunidad."
+            </div>
+            <div class="mission-justification">
+                <strong>Justificación Estratégica:</strong> Esta misión responde de forma directa a la síntesis de mi perfil VIA. Capitaliza mis mayores fortalezas innatas (Perspectiva, Equidad y Esperanza) y las orienta explícitamente hacia la mitigación de mis áreas de oportunidad prioritarias. Al integrar la autorregulación consciente en mis pasatiempos y tecnología, protejo de manera activa el tiempo de calidad con mi esposa y mi hijo (atendiendo la fortaleza del Amor). Al migrar de un enfoque puramente centrado en métricas técnicas hacia mentorías grupales profundas, ejerzo un verdadero Liderazgo Humano. Finalmente, al meditar sobre el impacto ético y vital de mis entregables, cultivo la Espiritualidad y el Entusiasmo, trascendendo lo pragmático y material para dejar un legado duradero.
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 5: GALERÍA VISUAL Y VALORES -->
+    <section id="valores">
+        <h2 class="section-title">Galería de Valores & Referencias</h2>
+        <div class="gallery">
+            <div class="gallery-item">
+                <div class="gallery-quote">"No podemos dejar que otros decidan nuestro futuro. Debemos actuar donde estamos con lo que tenemos para generar un impacto real."</div>
+                <div class="gallery-author">Wangari Maathai</div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-quote">"El líder de servicio es siervo primero. Comienza con el sentimiento natural de alguien que quiere servir, luego la aspiración consciente lo lleva a dirigir."</div>
+                <div class="gallery-author">Robert K. Greenleaf</div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-quote">"La honestidad y la equidad no son negociables en la gestión de personas; la confianza tarda años en construirse y segundos en romperse."</div>
+                <div class="gallery-author">Filosofía de Gestión</div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-quote">"La esperanza es el motor que piensa que un mejor futuro está en nuestras manos, y trabaja de forma disciplinada para construirlo."</div>
+                <div class="gallery-author">Reflexión VIA</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Alejandro Pardo AL07003706. Diseñado para la materia El lider desde adentro en universidad TecMilenio.</p>
+    </footer>
+
+</body>
+</html>
