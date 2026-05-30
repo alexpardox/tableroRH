@@ -63,13 +63,13 @@
         .navbar ul {
             display: flex;
             list-style: none;
-            gap: 30px;
+            gap: 20px;
         }
 
         .navbar ul li a {
             color: #cbd5e1;
             text-decoration: none;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 500;
             font-family: 'Montserrat', sans-serif;
             transition: color 0.3s;
@@ -142,7 +142,7 @@
 
         /* Secciones Generales */
         section {
-            padding: 100px 50px 60px;
+            padding: 80px 50px 40px;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -183,7 +183,7 @@
             .hero h1 { font-size: 36px; }
         }
 
-        /* Estilos del Test VIA */
+        /* Tarjetas (Cards) */
         .intro-text {
             font-size: 16px;
             line-height: 1.7;
@@ -205,9 +205,10 @@
             transform: translateY(-2px);
         }
 
-        .card.opportunity {
-            border-left-color: var(--accent-amber);
-        }
+        .card.opportunity { border-left-color: var(--accent-amber); }
+        .card.strength { border-left-color: #10b981; }
+        .card.weakness { border-left-color: #ef4444; }
+        .card.threat { border-left-color: #64748b; }
 
         .card-header {
             display: flex;
@@ -216,14 +217,11 @@
             gap: 15px;
         }
 
-        .card-header i {
-            font-size: 22px;
-            color: var(--primary-blue);
-        }
-
-        .card.opportunity .card-header i {
-            color: var(--accent-amber);
-        }
+        .card-header i { font-size: 22px; color: var(--primary-blue); }
+        .card.opportunity .card-header i { color: var(--accent-amber); }
+        .card.strength .card-header i { color: #10b981; }
+        .card.weakness .card-header i { color: #ef4444; }
+        .card.threat .card-header i { color: #64748b; }
 
         .card h3 {
             font-family: 'Montserrat', sans-serif;
@@ -232,13 +230,20 @@
             font-weight: 600;
         }
 
-        .card p {
+        .card p, .card ul {
             font-size: 14px;
             color: var(--text-main);
             text-align: justify;
+            margin-top: 10px;
+        }
+        
+        .card ul {
+            padding-left: 20px;
         }
 
-        /* Estilos de Visión de Liderazgo */
+        .card ul li { margin-bottom: 10px; }
+
+        /* Bloques de Teoría y Misión */
         .theory-block {
             background: #ffffff;
             padding: 30px;
@@ -254,42 +259,6 @@
             font-size: 20px;
         }
 
-        /* Tabla Comparativa */
-        .table-container {
-            overflow-x: auto;
-            margin: 30px 0;
-            background: #ffffff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            text-align: left;
-            font-size: 14px;
-        }
-
-        th {
-            background-color: var(--primary-blue);
-            color: white;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            padding: 15px;
-        }
-
-        td {
-            padding: 12px 15px;
-            border-bottom: 1px solid #e2e8f0;
-            color: var(--text-main);
-        }
-
-        tr:nth-child(even) {
-            background-color: #f8fafc;
-        }
-
-        /* Sección Misión */
         .mission-box {
             background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
             color: white;
@@ -323,7 +292,63 @@
             line-height: 1.7;
         }
 
-        /* Galería de Valores */
+        /* Tablas */
+        .table-container {
+            overflow-x: auto;
+            margin: 30px 0;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        th {
+            background-color: var(--primary-blue);
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            padding: 15px;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e2e8f0;
+            color: var(--text-main);
+        }
+
+        tr:nth-child(even) { background-color: #f8fafc; }
+
+        /* SMART Goals Grid */
+        .smart-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .smart-item {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            border-top: 4px solid var(--accent-blue);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .smart-item h4 {
+            color: var(--primary-dark);
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        /* Galería */
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -343,9 +368,7 @@
             transition: transform 0.3s;
         }
 
-        .gallery-item:hover {
-            transform: translateY(-5px);
-        }
+        .gallery-item:hover { transform: translateY(-5px); }
 
         .gallery-quote {
             font-size: 15px;
@@ -396,9 +419,11 @@
         <ul>
             <li><a href="#inicio">Inicio</a></li>
             <li><a href="#via">Test VIA</a></li>
-            <li><a href="#vision">Visión de Liderazgo</a></li>
+            <li><a href="#vision">Visión</a></li>
             <li><a href="#mision">Misión</a></li>
-            <li><a href="#valores">Valores</a></li>
+            <li><a href="#foda">FODA</a></li>
+            <li><a href="#smart">Metas SMART</a></li>
+            <li><a href="#relaciones">Red Estratégica</a></li>
         </ul>
     </nav>
 
@@ -486,13 +511,6 @@
                 </tbody>
             </table>
         </div>
-
-        <div class="theory-block">
-            <h3>Influencia Global y Modelos de Referencia</h3>
-            <p class="intro-text" style="font-size:14px; margin-bottom:0;">
-                Grandes figuras demuestran que el verdadero impacto no proviene del poder legítimo u organizacional, sino del <strong>poder de referencia y de experiencia</strong>. Líderes como Barack Obama o el Papa Francisco guían inspirando confianza mutua y empatía, superando el frío control administrativo. Activistas globales como Malala Yousafzai u Olimpia Coral demuestran la esencia de desafiar el estatus quo e impulsar cambios históricos a través de la elocuencia y asertividad. Asimismo, la historia de <strong>Wangari Maathai</strong> (Premio Nobel de la Paz) ilustra a la perfección el liderazgo transformacional y de servicio: a través de su Movimiento Cinturón Verde, movilizó y empoderó a comunidades rurales apelando a valores morales compartidos, demostrando que el liderazgo auténtico elimina obstáculos y conecta los esfuerzos cotidianos con un propósito trascendente.
-            </p>
-        </div>
     </section>
 
     <!-- SECCIÓN 4: MISIÓN DE VIDA -->
@@ -504,12 +522,160 @@
                 "Impactar positivamente mi entorno profesional y familiar a través de un liderazgo transformacional y de servicio; utilizando la perspectiva estratégica y la equidad para desarrollar el potencial humano de mis equipos de trabajo, mientras resguardo con amor y autorregulación el tiempo presente con mi familia, conectando cada proyecto en el que intervenga con un propósito mayor para mi comunidad."
             </div>
             <div class="mission-justification">
-                <strong>Justificación Estratégica:</strong> Esta misión responde de forma directa a la síntesis de mi perfil VIA. Capitaliza mis mayores fortalezas innatas (Perspectiva, Equidad y Esperanza) y las orienta explícitamente hacia la mitigación de mis áreas de oportunidad prioritarias. Al integrar la autorregulación consciente en mis pasatiempos y tecnología, protejo de manera activa el tiempo de calidad con mi esposa y mi hijo (atendiendo la fortaleza del Amor). Al migrar de un enfoque puramente centrado en métricas técnicas hacia mentorías grupales profundas, ejerzo un verdadero Liderazgo Humano. Finalmente, al meditar sobre el impacto ético y vital de mis entregables, cultivo la Espiritualidad y el Entusiasmo, trascendendo lo pragmático y material para dejar un legado duradero.
+                <strong>Justificación Estratégica:</strong> Esta misión responde de forma directa a la síntesis de mi perfil VIA. Capitaliza mis mayores fortalezas innatas (Perspectiva, Equidad y Esperanza) y las orienta explícitamente hacia la mitigación de mis áreas de oportunidad prioritarias. Al integrar la autorregulación consciente en mis pasatiempos y tecnología, protejo de manera activa el tiempo de calidad con mi esposa y mi hijo (atendiendo la fortaleza del Amor). Al migrar de un enfoque puramente centrado en métricas técnicas hacia mentorías grupales profundas, ejerzo un verdadero Liderazgo Humano. Finalmente, al meditar sobre el impacto ético y vital de mis entregables, cultivo la Espiritualidad y el Entusiasmo, trascendiendo lo pragmático y material para dejar un legado duradero.
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN 5: GALERÍA VISUAL Y VALORES -->
+    <!-- SECCIÓN 5: ANÁLISIS FODA -->
+    <section id="foda">
+        <h2 class="section-title">Análisis FODA Personal</h2>
+        <p class="intro-text">El siguiente análisis alinea mis características internas y el entorno externo directamente con el cumplimiento de mi misión personal y profesional.</p>
+        
+        <div class="grid-2">
+            <!-- Fortalezas -->
+            <div class="card strength">
+                <div class="card-header"><i class="fa-solid fa-arrow-trend-up"></i><h3>Fortalezas (Internas)</h3></div>
+                <ul>
+                    <li><strong>Sentido del humor:</strong> Aligera la tensión en mi equipo de trabajo, facilitando un liderazgo de servicio basado en la confianza.</li>
+                    <li><strong>Perspectiva técnica y estratégica:</strong> Mi experiencia gestionando arquitecturas me permite guiar a otros y alinear el trabajo hacia el desarrollo de su potencial humano.</li>
+                    <li><strong>Esperanza y orientación al futuro:</strong> Impulsa mi convicción de dejar un impacto positivo duradero, tanto en mi comunidad como en mi familia.</li>
+                    <li><strong>Equidad:</strong> Garantiza que el trato, la mentoría y las oportunidades dentro de mi equipo directivo sean siempre justas.</li>
+                </ul>
+            </div>
+
+            <!-- Oportunidades -->
+            <div class="card opportunity">
+                <div class="card-header"><i class="fa-solid fa-lightbulb"></i><h3>Oportunidades (Externas)</h3></div>
+                <ul>
+                    <li><strong>Proyectos comunitarios:</strong> Iniciativas como la conservación de recursos hídricos en Monterrey me permiten materializar el propósito mayor de mi misión hacia la sociedad.</li>
+                    <li><strong>Educación continua:</strong> Cursar estudios universitarios y de maestría nutre mi liderazgo con perspectivas frescas y actualizadas.</li>
+                    <li><strong>Automatización del hogar (Domótica):</strong> Utilizar la tecnología eficientemente me otorga la oportunidad de ganar tiempo para resguardar el espacio de calidad familiar.</li>
+                    <li><strong>Evolución en la estructura del equipo:</strong> El crecimiento orgánico del talento a mi cargo representa un lienzo ideal para ejercer el liderazgo transformacional.</li>
+                </ul>
+            </div>
+
+            <!-- Debilidades / Áreas de Mejora -->
+            <div class="card weakness">
+                <div class="card-header"><i class="fa-solid fa-hammer"></i><h3>Áreas de Mejora (Internas)</h3></div>
+                <ul>
+                    <li><strong>Autorregulación con pasatiempos:</strong> Debo limitar el tiempo que dedico a mis redes, servidores o vehículos para no mermar mi tiempo presente familiar.</li>
+                    <li><strong>Entusiasmo en la rutina:</strong> Necesito inyectar energía en las tareas cotidianas para no percibirlas como cargas, asegurando un entorno hogareño positivo.</li>
+                    <li><strong>Delegación del liderazgo:</strong> Ocasionalmente me centro demasiado en métricas y Scrum, olvidando que motivar al talento es clave para el liderazgo transformacional.</li>
+                    <li><strong>Espiritualidad práctica:</strong> Me falta conectar frecuentemente las tareas de mi día a día con un esquema y propósito de vida más amplio y profundo.</li>
+                </ul>
+            </div>
+
+            <!-- Amenazas -->
+            <div class="card threat">
+                <div class="card-header"><i class="fa-solid fa-shield-halved"></i><h3>Amenazas (Externas)</h3></div>
+                <ul>
+                    <li><strong>Sobrecarga operativa laboral:</strong> Las altas demandas de los sistemas de TI pueden amenazar el balance y el resguardo del tiempo con mi esposa e hijo.</li>
+                    <li><strong>Inmediatez digital:</strong> La facilidad de "matar el rato" con distracciones digitales compite constantemente contra el desarrollo de hábitos saludables.</li>
+                    <li><strong>Monotonía de la gestión corporativa:</strong> El riesgo latente de que los procesos administrativos asfixien la innovación y la visión a largo plazo del equipo.</li>
+                    <li><strong>Estrés del entorno urbano:</strong> Factores externos pueden desgastar la energía vital necesaria para mantener un liderazgo empático e inspirador sostenido.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 6: OBJETIVOS SMART -->
+    <section id="smart">
+        <h2 class="section-title">Objetivos SMART de Crecimiento</h2>
+        <p class="intro-text">Estos ocho objetivos están diseñados bajo la metodología SMART para materializar el impacto de mi misión y mi mapa de crecimiento personal.</p>
+        
+        <div class="smart-grid">
+            <div class="smart-item">
+                <h4>1. Salud y Disciplina</h4>
+                <p>Realizar 15 minutos de actividad física en casa antes de encender la computadora, 4 días a la semana durante los próximos 3 meses, para romper la barrera del estancamiento.</p>
+            </div>
+            <div class="smart-item">
+                <h4>2. Tiempo de Calidad Familiar</h4>
+                <p>Establecer un bloque innegociable de 2 horas sin pantallas cada domingo por la mañana dedicado exclusivamente a Dulce y Daniel durante los próximos 6 meses.</p>
+            </div>
+            <div class="smart-item">
+                <h4>3. Liderazgo de Equipo</h4>
+                <p>Organizar una sesión mensual de mentoría 1-a-1 de 30 minutos con los integrantes de mi equipo de aquí al cierre de año, enfocada en su desarrollo profesional y no en estatus de proyectos.</p>
+            </div>
+            <div class="smart-item">
+                <h4>4. Autorregulación Técnica</h4>
+                <p>Limitar el tiempo de configuración y proyectos de hardware a un máximo de 3 horas durante los fines de semana usando un temporizador, integrando este hábito en los próximos 60 días.</p>
+            </div>
+            <div class="smart-item">
+                <h4>5. Impacto Comunitario</h4>
+                <p>Completar la fase de planificación y entregar el charter del proyecto enfocado en la conservación y reúso de agua ("Hogares Hídricos") antes de que finalice el semestre en curso.</p>
+            </div>
+            <div class="smart-item">
+                <h4>6. Desarrollo Espiritual</h4>
+                <p>Dedicar 10 minutos de reflexión escrita cada viernes por la tarde sobre cómo las acciones de la semana se alinearon con mi propósito vital, manteniendo la práctica todo el próximo trimestre.</p>
+            </div>
+            <div class="smart-item">
+                <h4>7. Educación y Liderazgo</h4>
+                <p>Aprobar el curso universitario actual logrando implementar al menos un modelo de liderazgo transformacional en las dinámicas gerenciales antes del cierre del ciclo académico.</p>
+            </div>
+            <div class="smart-item">
+                <h4>8. Tranquilidad Financiera</h4>
+                <p>Automatizar e incrementar un 10% las aportaciones periódicas a mi plan personal de inversiones y retiro durante el actual año fiscal, para respaldar el bienestar futuro de mi entorno.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 7: AGENDA DE RELACIONES ESTRATÉGICAS -->
+    <section id="relaciones">
+        <h2 class="section-title">Agenda de Relaciones Estratégicas</h2>
+        <p class="intro-text">El liderazgo efectivo requiere nutrir vínculos que aporten valor bidireccional. La siguiente agenda detalla los contactos clave para fortalecer mi red estratégica.</p>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Contacto (Nombre / Cargo / Medio)</th>
+                        <th>Acción de Fortalecimiento del Vínculo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>NOMBRE / CARGO / MEDIO DE CONTACTO</strong></td>
+                        <td>Programar un café bimensual para discutir tendencias tecnológicas y compartir mejores prácticas de liderazgo técnico.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>NOMBRE / CARGO / MEDIO DE CONTACTO</strong></td>
+                        <td>Compartir artículos sobre liderazgo transformacional vía mensaje directo para abrir foros de discusión quincenales.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>NOMBRE / CARGO / MEDIO DE CONTACTO</strong></td>
+                        <td>Invitarle a colaborar de forma consultiva en iniciativas de impacto comunitario, alineando intereses y propósitos sociales.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>NOMBRE / CARGO / MEDIO DE CONTACTO</strong></td>
+                        <td>Agendar llamadas breves mensuales para intercambiar consejos sobre el equilibrio estratégico entre la responsabilidad directiva y la vida familiar.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>NOMBRE / CARGO / MEDIO DE CONTACTO</strong></td>
+                        <td>Organizar una sesión de networking trimestral enfocada en la innovación de procesos y el desarrollo integral del talento corporativo.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 8: REFLEXIÓN FINAL -->
+    <section id="reflexion">
+        <h2 class="section-title">Reflexión Final del Curso</h2>
+        <div class="theory-block" style="border-left: 5px solid var(--primary-blue);">
+            <p class="intro-text" style="margin-bottom: 15px;">
+                A lo largo de este curso, la principal revelación ha sido comprender que el liderazgo efectivo jamás ocurre de forma aislada ni se limita a un título gerencial; es una construcción intencional que comienza en el interior. Al elaborar mi perfil VIA y mi Análisis FODA, confirmé que mis fortalezas técnicas y analíticas me han llevado a ser un buen administrador, pero dar el salto hacia un <strong>Liderazgo Transformacional y de Servicio</strong> exige una profunda vulnerabilidad y una mejor gestión humana.
+            </p>
+            <p class="intro-text" style="margin-bottom: 15px;">
+                Descubrir cómo mis áreas de oportunidad —como la autorregulación o el entusiasmo— pueden sabotear silenciosamente mis prioridades, fue el catalizador para diseñar objetivos SMART reales. Entendí que salir de la zona de confort no requiere sacrificios heroicos o desmedidos, sino disciplinas minúsculas, como usar un temporizador para no perderme en mis pasatiempos y así proteger el espacio vital que le debo a mi familia. El liderazgo hacia mi equipo de trabajo también cobró un nuevo sentido: dejó de tratarse de vigilar métricas y se transformó en el compromiso de proporcionar sabios consejos y desarrollar el talento humano.
+            </p>
+            <p class="intro-text" style="margin-bottom: 0;">
+                Este portafolio no es solo un entregable académico, es mi mapa de ruta. Hoy tengo claro que mi misión es liderar con empatía, equidad y propósito, conectando mis habilidades con un impacto real en mi comunidad. Como bien lo plantea la historia de figuras como Wangari Maathai, el verdadero líder no es quien acapara el poder, sino quien siembra hoy las semillas para que su entorno prospere en el futuro.
+            </p>
+        </div>
+    </section>
+
+    <!-- GALERÍA DE VALORES (Sección 9) -->
     <section id="valores">
         <h2 class="section-title">Galería de Valores & Referencias</h2>
         <div class="gallery">
